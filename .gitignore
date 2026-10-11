@@ -20,6 +20,11 @@ frontend/.env
 frontend/.env.*
 !frontend/.env.example
 
+# Agent / harness tooling — installed locally by `npx loopshouse add road-to-devcon-viii`.
+# Machine-local skill copies; the submitted repository does not need them.
+.agents/
+.claude/
+
 # OS / editor
 dist
 build
