@@ -1,0 +1,19 @@
+{
+  "name": "speedrun-ghosts-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Speedrun Ghosts browser client. Level data is read at runtime from the deployed contract.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

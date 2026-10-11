@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedrun Ghosts</title>
+    <style>
+        body { font-family: monospace; background: #111; color: #fff; margin: 0; padding: 20px; }
+        canvas { border: 2px solid #333; background: #222; display: block; margin: 20px 0; }
+        button { padding: 8px 16px; margin: 4px; background: #333; color: #fff; border: 1px solid #555; cursor: pointer; }
+        button:hover:not(:disabled) { background: #444; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #status { margin: 10px 0; min-height: 20px; }
+        #banner { padding: 8px; margin: 10px 0; border-radius: 4px; }
+        #wallet { margin: 6px 0; color: #8cf; word-break: break-all; }
+        #networkBar { margin: 6px 0; }
+        #networkBar select { background: #222; color: #fff; border: 1px solid #555; padding: 4px; }
+        #networkNote { color: #aaa; margin-left: 8px; }
+        #leaderboard { background: #1a1a1a; padding: 10px; margin: 10px 0; border: 1px solid #333; }
+        .row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #222; }
+        .row:hover { background: #222; }
+        .row-highlight { background: #14351a; box-shadow: inset 3px 0 0 #4f4; color: #cfffd0; }
+        .row-highlight:hover { background: #1a4522; }
+    </style>
+</head>
+<body>
+    <h1>Speedrun Ghosts</h1>
+    <div id="networkBar">
+        <label for="networkSelect">Network:</label>
+        <select id="networkSelect"></select>
+        <span id="networkNote"></span>
+    </div>
+    <div id="banner"></div>
+    <div id="status">Connect your wallet and load the level from the contract. Controls: Arrow keys / A/D to move, Space to jump.</div>
+    <canvas id="game" width="800" height="400"></canvas>
+    <div>
+        <button id="connectBtn">Connect Wallet</button>
+        <button id="startBtn" disabled>Start</button>
+        <button id="resetBtn">Reset</button>
+        <button id="submitBtn" disabled>Submit Run (onchain)</button>
+        <button id="replayGhostBtn">Replay Ghost</button>
+    </div>
+    <div id="wallet"></div>
+    <div id="leaderboard">
+        <h3>Leaderboard (verified on-chain)</h3>
+        <div id="leaderboardContent"></div>
+    </div>
+    <div id="info">
+        <small>
+            Both Ethereum Sepolia (Chain ID 11155111) and Base Sepolia (84532) are configured, each with its
+            own contract address and RPC, and are never shared. <b>Ethereum Sepolia is our deployment and
+            manual-verification target</b>; Base Sepolia is supported/configurable for a separate deployment
+            by someone with its test ETH, but we have not deployed to or verified it. All level data
+            (dimensions, obstacles, tick rate) is read from the selected contract at runtime - the contract
+            is the single source of truth.
+        </small>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

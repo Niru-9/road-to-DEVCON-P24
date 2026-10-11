@@ -1,0 +1,27 @@
+# Env / secrets — never commit real values
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+keystore/
+
+# Foundry
+node_modules
+out
+cache
+broadcast/*/dry-run/
+artifacts
+
+# Frontend
+frontend/node_modules
+frontend/dist
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# OS / editor
+dist
+build
+.DS_Store
+*.log
